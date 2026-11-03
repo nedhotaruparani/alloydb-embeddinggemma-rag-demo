@@ -1,0 +1,27 @@
+RAG Demo - AlloyDB Omni + EmbeddingGemma + Qwen 2.5
+
+Customer question:
+What kind of fruit trees grow well here?
+
+AlloyDB retrieved product:
+Product: Cherry Tree
+Price: $75.00
+Store ZIP: 93230
+
+Product description:
+This is a beautiful cherry tree that produces delicious cherries.
+It grows to about 15 feet tall.
+It prefers a cool, moist climate and sandy soil.
+It is best suited for USDA zones 4-9.
+
+Qwen 2.5 generated response:
+Delicious cherries, perfect for a cherry tree in the USDA zones 4-9.
+
+Architecture:
+1. EmbeddingGemma generated the query embedding.
+2. AlloyDB Omni performed vector similarity search.
+3. AlloyDB retrieved the matching product using inventory and store filters.
+4. Qwen 2.5 generated the response locally through Ollama in Cloud Shell.
+
+Note:
+Qwen runs separately from AlloyDB. Gemma 12B GPU inference was not completed because GKE could not provision the required GPU.
