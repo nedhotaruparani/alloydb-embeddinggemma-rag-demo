@@ -76,3 +76,25 @@ The Codelab's Gemma 12B GPU inference stage could not be completed because GKE w
 ## Disclaimer
 
 This is a demonstration using sample product and inventory data. It is not connected to a live retail inventory system.
+
+## Codelab Step 9 – Execution Status
+
+### Completed
+- Retrieved the AlloyDB Omni endpoint: `10.160.0.8`.
+- Connected to the `demo` database using `psql` from the AlloyDB pod.
+- Verified model registration using `google_ml.model_info_view`.
+- Confirmed that `embeddinggemma` is registered and available.
+- Completed vector similarity search using EmbeddingGemma.
+- Retrieved the top matching in-stock product for store 1583.
+- Generated a separate response using Qwen 2.5 0.5B through Ollama in Cloud Shell.
+
+### Not Completed
+- Gemma 12B GPU model registration in AlloyDB.
+- Gemma 12B inference using `google_ml.predict_row`.
+- Complete in-database RAG generation using Gemma 12B.
+
+### Reason for Incomplete GPU Steps
+The Gemma 12B deployment could not be scheduled because GKE was unable to provision the required NVIDIA L4 GPU. Therefore, the original in-database Gemma 12B workflow could not be completed.
+
+### Implementation Note
+This project demonstrates vector retrieval in AlloyDB Omni and separate LLM response generation using Qwen 2.5 in Cloud Shell. It is an adapted RAG demonstration, not the fully self-contained in-database RAG workflow from the original codelab.
